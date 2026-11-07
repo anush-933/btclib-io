@@ -523,12 +523,12 @@ gh api repos/btclib-org/btclib-org.github.io/environments \
 condition is wrong:
 
 ```shell
-env=repos/btclib-org/btclib-org.github.io/environments/github-pages
-gh api "$env" --jq '{deployment_branch_policy}'
+gh api repos/btclib-org/btclib-org.github.io/environments/github-pages \
+  --jq '{deployment_branch_policy}'
 # {"deployment_branch_policy":{"custom_branch_policies":true,
 #  "protected_branches":false}}
-gh api "$env/deployment-branch-policies" \
-  --jq '[.branch_policies[] | {name, type}]'
+gh api --jq '[.branch_policies[] | {name, type}]' \
+  repos/btclib-org/btclib-org.github.io/environments/github-pages/deployment-branch-policies
 # [{"name":"main","type":"branch"}]
 ```
 
