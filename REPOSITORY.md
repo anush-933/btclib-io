@@ -22,8 +22,8 @@ listed rather than restated in a second place that would have to be kept
 true:
 
 ```shell
-grep -o 'repos/btclib-org/btclib-org\.github\.io[a-z/-]*' REPOSITORY.md \
-  | sort -u
+grep -o 'repos/btclib-org/btclib-org\.github\.io[A-Za-z0-9/{}._-]*' \
+  REPOSITORY.md | sort -u
 ```
 
 When each answer was read is the commit that wrote it: `git blame
